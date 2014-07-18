@@ -1,5 +1,5 @@
 # Django settings for feo_robo project.
-
+import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -11,8 +11,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/home/rakot/PycharmProjects/feo_robo/febomobi.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -107,11 +107,7 @@ ROOT_URLCONF = 'feo_robo.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'feo_robo.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates').replace('\\','/'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -120,6 +116,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'myrobo',
+    'robokassa',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -154,3 +152,18 @@ LOGGING = {
         },
     }
 }
+
+FEBO = False
+
+if FEBO:
+    ROBOKASSA_TEST_MODE = True
+    ROBOKASSA_LOGIN = 'Febo_Telecom'
+    ROBOKASSA_PASSWORD1 = 'febomobi12345'
+    ROBOKASSA_PASSWORD2 = 'febomobipay12345'
+    ROBOKASSA_EXTRA_PARAMS = ['param1', 'param2']
+else:
+    ROBOKASSA_TEST_MODE = False
+    ROBOKASSA_LOGIN = 'Dobry_dom'
+    ROBOKASSA_PASSWORD1 = 'DobryDom12345'
+    ROBOKASSA_PASSWORD2 = 'DobryDom12345Pay'
+    ROBOKASSA_EXTRA_PARAMS = ['param1', 'param2']
