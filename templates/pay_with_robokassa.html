@@ -1,6 +1,14 @@
-{% block content %}
-    <form action="{{ form.target }}" method="POST">
-        <p>{{ form.as_p }}</p>
-        <p><input type="submit" value="Купить"></p>
-    </form>
-{% endblock %}
+<html>
+<head>
+    <title>Купить сим-карту!</title>
+</head>
+    <h2>Купите сим-карту уже сейчас!</h2>
+        {% block content %}
+            <form action="{{ form.target }}" method="POST">
+              <p>{{ form.as_p }}</p>
+            <p><input type="submit" value="Купить"></p>
+            </form>
+        {% endblock %}
+    <img src="http://gstyling.ru/images/stories/ServicesIcons/visa.jpg" width="100" >
+
+</html>
