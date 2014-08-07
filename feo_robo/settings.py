@@ -153,17 +153,7 @@ LOGGING = {
     }
 }
 
-FEBO = False
-
-if FEBO:
-    ROBOKASSA_TEST_MODE = True
-    ROBOKASSA_LOGIN = 'Febo_Telecom'
-    ROBOKASSA_PASSWORD1 = 'febomobi12345'
-    ROBOKASSA_PASSWORD2 = 'febomobipay12345'
-    ROBOKASSA_EXTRA_PARAMS = ['param1', 'param2']
-else:
-    ROBOKASSA_TEST_MODE = False
-    ROBOKASSA_LOGIN = 'Dobry_dom'
-    ROBOKASSA_PASSWORD1 = 'DobryDom12345'
-    ROBOKASSA_PASSWORD2 = 'DobryDom12345Pay'
-    ROBOKASSA_EXTRA_PARAMS = ['param1', 'param2']
+ROBOKASSA_LOGIN = 'Febo_Telecom'
+ROBOKASSA_PASSWORD1 = 'febomobi12345'
+ROBOKASSA_PASSWORD2 = 'febomobipay12345'
+ROBOKASSA_EXTRA_PARAMS = ['param1', 'param2']

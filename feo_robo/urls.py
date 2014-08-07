@@ -8,5 +8,5 @@ from robokassa import urls
 urlpatterns = patterns('',
 
     url(r'^robokassa/', include('robokassa.urls')),
-    url(r'^home/(\d+)/', 'myrobo.views.pay_with_robokassa')
+    url(r'^home/febo/(\d+)/([-+]?[0-9]*\.?[0-9]+)', 'myrobo.views.pay_with_robokassa'),
 )

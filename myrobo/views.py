@@ -6,11 +6,10 @@ from django.contrib.auth.decorators import login_required
 from robokassa.forms import RobokassaForm
 
 
-def pay_with_robokassa(request, id):
+def pay_with_robokassa(request, id, amount):
     # order = get_object_or_404(Order, pk=order_id)
-
     form = RobokassaForm(initial={
-               'OutSum': 10,
+               'OutSum': float(amount),
                'InvId':id,
                'Desc': 'Temp_description',
                'Email': 'denis.shchigelsky@gmail.com',
